@@ -1,0 +1,4 @@
+D:/Workspace/virtual-queue-system/android/app/.cxx/Debug/3j5v3z1b/armeabi-v7a/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/foo.dir
+D:/Workspace/virtual-queue-system/android/app/.cxx/Debug/3j5v3z1b/armeabi-v7a/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/boo.dir
+D:/Workspace/virtual-queue-system/android/app/.cxx/Debug/3j5v3z1b/armeabi-v7a/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/edit_cache.dir
+D:/Workspace/virtual-queue-system/android/app/.cxx/Debug/3j5v3z1b/armeabi-v7a/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/rebuild_cache.dir

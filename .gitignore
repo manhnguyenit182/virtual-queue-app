@@ -1,0 +1,9 @@
+node_modules
+# Ignore Android build files
+android/app/build/
+android/app/build/outputs/apk/
+android/app/build/intermediates/
+
+# Ignore large binary files
+*.apk
+*.so

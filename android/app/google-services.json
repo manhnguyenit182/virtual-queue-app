@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "119761818560",
+    "firebase_url": "https://virtualqueueapp-ef826-default-rtdb.asia-southeast1.firebasedatabase.app",
     "project_id": "virtualqueueapp-ef826",
     "storage_bucket": "virtualqueueapp-ef826.firebasestorage.app"
   },

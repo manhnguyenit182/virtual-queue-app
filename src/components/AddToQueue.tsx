@@ -1,26 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { Alert, View } from 'react-native';
+import { NavigationContext } from '../../App';
 import {
-    View,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    StyleSheet,
-    Alert,
-} from 'react-native';
+    VStack,
+    HStack,
+    Input,
+    InputField,
+    Button,
+    ButtonText,
+    Card,
+    Heading,
+    FormControl,
+    FormControlLabel,
+    FormControlLabelText,
+    Spinner,
+} from '@gluestack-ui/themed';
 import FirebaseService from '../services/FirebaseService';
-
-interface AddToQueueProps {
-    onSuccess?: (queueId: string) => void;
-}
-
-const AddToQueue: React.FC<AddToQueueProps> = ({ onSuccess }) => {
+import Header from './Header';
+import { VALIDATION } from '../constants';
+const AddToQueue: React.FC = () => {
+    const navigation = useContext(NavigationContext);
     const [name, setName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [loading, setLoading] = useState(false);
 
+
+
     const validateInput = () => {
         if (!name.trim()) {
             Alert.alert('Lỗi', 'Vui lòng nhập tên');
+            return false;
+        }
+
+        if (name.trim().length < VALIDATION.nameMinLength) {
+            Alert.alert('Lỗi', `Tên phải có ít nhất ${VALIDATION.nameMinLength} ký tự`);
+            return false;
+        }
+
+        if (name.trim().length > VALIDATION.nameMaxLength) {
+            Alert.alert('Lỗi', `Tên không được vượt quá ${VALIDATION.nameMaxLength} ký tự`);
             return false;
         }
 
@@ -29,9 +47,8 @@ const AddToQueue: React.FC<AddToQueueProps> = ({ onSuccess }) => {
             return false;
         }
 
-        const phoneRegex = /^[0-9]{10,11}$/;
-        if (!phoneRegex.test(phoneNumber.replace(/\s/g, ''))) {
-            Alert.alert('Lỗi', 'Số điện thoại không hợp lệ');
+        if (!VALIDATION.phoneRegex.test(phoneNumber.replace(/\s/g, ''))) {
+            Alert.alert('Lỗi', 'Số điện thoại không hợp lệ (10-11 số)');
             return false;
         }
 
@@ -42,22 +59,31 @@ const AddToQueue: React.FC<AddToQueueProps> = ({ onSuccess }) => {
         if (!validateInput()) return;
 
         setLoading(true);
-        try {
-            const queueId = await FirebaseService.addToQueue(name.trim(), phoneNumber.trim());
-            const position = await FirebaseService.getQueuePosition(queueId);
 
-            Alert.alert(
-                'Thành công',
-                `Đã thêm ${name} vào hàng đợi.\nVị trí hiện tại: ${position}`,
-                [{
-                    text: 'OK', onPress: () => {
-                        setName('');
-                        setPhoneNumber('');
-                        onSuccess?.(queueId);
-                    }
-                }]
-            );
+
+        try {
+            const queueNumber = await FirebaseService.addToQueue(name.trim(), phoneNumber.trim());
+
+            const position = await FirebaseService.getQueuePosition(queueNumber);
+
+            // Reset the form
+            const userName = name.trim();
+            setName('');
+            setPhoneNumber('');
+            console.log('✅ Added to queue successfully:', {
+                queueNumber,
+                name: userName,
+                position: position
+            });
+            // Navigate to QueueNumber screen with data
+            navigation.navigate('QueueNumber', {
+                queueNumber: queueNumber,
+                name: userName,
+                position: position
+            });
+
         } catch (error) {
+            console.error('❌ Add to queue error:', error);
             Alert.alert('Lỗi', 'Không thể thêm vào hàng đợi. Vui lòng thử lại.');
         } finally {
             setLoading(false);
@@ -65,97 +91,63 @@ const AddToQueue: React.FC<AddToQueueProps> = ({ onSuccess }) => {
     };
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Thêm vào hàng đợi</Text>
+        <View style={{ flex: 1 }}>
+            <Header />
+            <Card size="md" variant="elevated" m="$4">
+                <VStack space="lg" p="$6">
+                    <Heading size="xl" textAlign="center" color="$textLight900">
+                        Nhập thông tin
+                    </Heading>
 
-            <View style={styles.inputContainer}>
-                <Text style={styles.label}>Tên khách hàng</Text>
-                <TextInput
-                    style={styles.input}
-                    value={name}
-                    onChangeText={setName}
-                    placeholder="Nhập tên khách hàng"
-                    placeholderTextColor="#999"
-                />
-            </View>
+                    <FormControl>
+                        <FormControlLabel mb="$2">
+                            <FormControlLabelText size="md" fontWeight="$semibold">
+                                Họ và tên
+                            </FormControlLabelText>
+                        </FormControlLabel>
+                        <Input variant="outline" size="md">
+                            <InputField
+                                placeholder="Nhập họ và tên"
+                                value={name}
+                                onChangeText={setName}
+                            />
+                        </Input>
+                    </FormControl>
 
-            <View style={styles.inputContainer}>
-                <Text style={styles.label}>Số điện thoại</Text>
-                <TextInput
-                    style={styles.input}
-                    value={phoneNumber}
-                    onChangeText={setPhoneNumber}
-                    placeholder="Nhập số điện thoại"
-                    placeholderTextColor="#999"
-                    keyboardType="phone-pad"
-                />
-            </View>
+                    <FormControl>
+                        <FormControlLabel mb="$2">
+                            <FormControlLabelText size="md" fontWeight="$semibold">
+                                Số điện thoại
+                            </FormControlLabelText>
+                        </FormControlLabel>
+                        <Input variant="outline" size="md">
+                            <InputField
+                                placeholder="Nhập số điện thoại"
+                                value={phoneNumber}
+                                onChangeText={setPhoneNumber}
+                                keyboardType="phone-pad"
+                            />
+                        </Input>
+                    </FormControl>
 
-            <TouchableOpacity
-                style={[styles.addButton, loading && styles.disabledButton]}
-                onPress={handleAddToQueue}
-                disabled={loading}
-            >
-                <Text style={styles.addButtonText}>
-                    {loading ? 'Đang thêm...' : 'Thêm vào hàng đợi'}
-                </Text>
-            </TouchableOpacity>
+                    <Button
+                        size="lg"
+                        variant="solid"
+                        action="primary"
+                        onPress={handleAddToQueue}
+                        mt="$2"
+                    >
+                        <HStack space="sm" alignItems="center">
+                            {loading && <Spinner size="small" color="$white" />}
+                            <ButtonText>
+                                {loading ? 'Đang thêm...' : 'Thêm vào hàng đợi'}
+                            </ButtonText>
+                        </HStack>
+                    </Button>
+                </VStack>
+            </Card>
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        backgroundColor: 'white',
-        margin: 16,
-        padding: 20,
-        borderRadius: 12,
-        elevation: 3,
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.1,
-        shadowRadius: 4,
-    },
-    title: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        marginBottom: 20,
-        textAlign: 'center',
-        color: '#333',
-    },
-    inputContainer: {
-        marginBottom: 16,
-    },
-    label: {
-        fontSize: 16,
-        fontWeight: '600',
-        marginBottom: 8,
-        color: '#333',
-    },
-    input: {
-        borderWidth: 1,
-        borderColor: '#DDD',
-        borderRadius: 8,
-        paddingHorizontal: 16,
-        paddingVertical: 12,
-        fontSize: 16,
-        backgroundColor: '#F9F9F9',
-    },
-    addButton: {
-        backgroundColor: '#007AFF',
-        paddingVertical: 16,
-        borderRadius: 8,
-        alignItems: 'center',
-        marginTop: 8,
-    },
-    disabledButton: {
-        backgroundColor: '#CCC',
-    },
-    addButtonText: {
-        color: 'white',
-        fontSize: 16,
-        fontWeight: '600',
-    },
-});
 
 export default AddToQueue;

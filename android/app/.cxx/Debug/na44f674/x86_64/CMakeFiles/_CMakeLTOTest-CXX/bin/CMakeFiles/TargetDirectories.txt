@@ -1,0 +1,4 @@
+D:/Workspace/virtual-queue-app/android/app/.cxx/Debug/na44f674/x86_64/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/foo.dir
+D:/Workspace/virtual-queue-app/android/app/.cxx/Debug/na44f674/x86_64/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/boo.dir
+D:/Workspace/virtual-queue-app/android/app/.cxx/Debug/na44f674/x86_64/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/edit_cache.dir
+D:/Workspace/virtual-queue-app/android/app/.cxx/Debug/na44f674/x86_64/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/rebuild_cache.dir

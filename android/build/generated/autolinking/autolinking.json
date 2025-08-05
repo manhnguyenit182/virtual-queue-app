@@ -1,14 +1,14 @@
 {
-  "root": "D:\\Workspace\\virtual-queue-system",
-  "reactNativePath": "D:\\Workspace\\virtual-queue-system\\node_modules\\react-native",
+  "root": "D:\\Workspace\\virtual-queue-app",
+  "reactNativePath": "D:\\Workspace\\virtual-queue-app\\node_modules\\react-native",
   "reactNativeVersion": "0.80",
   "dependencies": {
     "@react-native-firebase/app": {
-      "root": "D:\\Workspace\\virtual-queue-system\\node_modules\\@react-native-firebase\\app",
+      "root": "D:\\Workspace\\virtual-queue-app\\node_modules\\@react-native-firebase\\app",
       "name": "@react-native-firebase/app",
       "platforms": {
         "ios": {
-          "podspecPath": "D:\\Workspace\\virtual-queue-system\\node_modules\\@react-native-firebase\\app\\RNFBApp.podspec",
+          "podspecPath": "D:\\Workspace\\virtual-queue-app\\node_modules\\@react-native-firebase\\app\\RNFBApp.podspec",
           "version": "22.4.0",
           "configurations": [],
           "scriptPhases": [
@@ -23,12 +23,12 @@
           ]
         },
         "android": {
-          "sourceDir": "D:\\Workspace\\virtual-queue-system\\node_modules\\@react-native-firebase\\app\\android",
+          "sourceDir": "D:\\Workspace\\virtual-queue-app\\node_modules\\@react-native-firebase\\app\\android",
           "packageImportPath": "import io.invertase.firebase.app.ReactNativeFirebaseAppPackage;",
           "packageInstance": "new ReactNativeFirebaseAppPackage()",
           "buildTypes": [],
           "componentDescriptors": [],
-          "cmakeListsPath": "D:/Workspace/virtual-queue-system/node_modules/@react-native-firebase/app/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cmakeListsPath": "D:/Workspace/virtual-queue-app/node_modules/@react-native-firebase/app/android/build/generated/source/codegen/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -37,22 +37,22 @@
       }
     },
     "@react-native-firebase/database": {
-      "root": "D:\\Workspace\\virtual-queue-system\\node_modules\\@react-native-firebase\\database",
+      "root": "D:\\Workspace\\virtual-queue-app\\node_modules\\@react-native-firebase\\database",
       "name": "@react-native-firebase/database",
       "platforms": {
         "ios": {
-          "podspecPath": "D:\\Workspace\\virtual-queue-system\\node_modules\\@react-native-firebase\\database\\RNFBDatabase.podspec",
+          "podspecPath": "D:\\Workspace\\virtual-queue-app\\node_modules\\@react-native-firebase\\database\\RNFBDatabase.podspec",
           "version": "22.4.0",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "D:\\Workspace\\virtual-queue-system\\node_modules\\@react-native-firebase\\database\\android",
+          "sourceDir": "D:\\Workspace\\virtual-queue-app\\node_modules\\@react-native-firebase\\database\\android",
           "packageImportPath": "import io.invertase.firebase.database.ReactNativeFirebaseDatabasePackage;",
           "packageInstance": "new ReactNativeFirebaseDatabasePackage()",
           "buildTypes": [],
           "componentDescriptors": [],
-          "cmakeListsPath": "D:/Workspace/virtual-queue-system/node_modules/@react-native-firebase/database/android/build/generated/source/codegen/jni/CMakeLists.txt",
+          "cmakeListsPath": "D:/Workspace/virtual-queue-app/node_modules/@react-native-firebase/database/android/build/generated/source/codegen/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -61,17 +61,17 @@
       }
     },
     "react-native-safe-area-context": {
-      "root": "D:\\Workspace\\virtual-queue-system\\node_modules\\react-native-safe-area-context",
+      "root": "D:\\Workspace\\virtual-queue-app\\node_modules\\react-native-safe-area-context",
       "name": "react-native-safe-area-context",
       "platforms": {
         "ios": {
-          "podspecPath": "D:\\Workspace\\virtual-queue-system\\node_modules\\react-native-safe-area-context\\react-native-safe-area-context.podspec",
+          "podspecPath": "D:\\Workspace\\virtual-queue-app\\node_modules\\react-native-safe-area-context\\react-native-safe-area-context.podspec",
           "version": "5.5.2",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "D:\\Workspace\\virtual-queue-system\\node_modules\\react-native-safe-area-context\\android",
+          "sourceDir": "D:\\Workspace\\virtual-queue-app\\node_modules\\react-native-safe-area-context\\android",
           "packageImportPath": "import com.th3rdwave.safeareacontext.SafeAreaContextPackage;",
           "packageInstance": "new SafeAreaContextPackage()",
           "buildTypes": [],
@@ -80,7 +80,7 @@
             "RNCSafeAreaProviderComponentDescriptor",
             "RNCSafeAreaViewComponentDescriptor"
           ],
-          "cmakeListsPath": "D:/Workspace/virtual-queue-system/node_modules/react-native-safe-area-context/android/src/main/jni/CMakeLists.txt",
+          "cmakeListsPath": "D:/Workspace/virtual-queue-app/node_modules/react-native-safe-area-context/android/src/main/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -89,17 +89,17 @@
       }
     },
     "react-native-svg": {
-      "root": "D:\\Workspace\\virtual-queue-system\\node_modules\\react-native-svg",
+      "root": "D:\\Workspace\\virtual-queue-app\\node_modules\\react-native-svg",
       "name": "react-native-svg",
       "platforms": {
         "ios": {
-          "podspecPath": "D:\\Workspace\\virtual-queue-system\\node_modules\\react-native-svg\\RNSVG.podspec",
+          "podspecPath": "D:\\Workspace\\virtual-queue-app\\node_modules\\react-native-svg\\RNSVG.podspec",
           "version": "15.12.1",
           "configurations": [],
           "scriptPhases": []
         },
         "android": {
-          "sourceDir": "D:\\Workspace\\virtual-queue-system\\node_modules\\react-native-svg\\android",
+          "sourceDir": "D:\\Workspace\\virtual-queue-app\\node_modules\\react-native-svg\\android",
           "packageImportPath": "import com.horcrux.svg.SvgPackage;",
           "packageInstance": "new SvgPackage()",
           "buildTypes": [],
@@ -135,7 +135,7 @@
             "RNSVGTSpanComponentDescriptor",
             "RNSVGUseComponentDescriptor"
           ],
-          "cmakeListsPath": "D:/Workspace/virtual-queue-system/node_modules/react-native-svg/android/src/main/jni/CMakeLists.txt",
+          "cmakeListsPath": "D:/Workspace/virtual-queue-app/node_modules/react-native-svg/android/src/main/jni/CMakeLists.txt",
           "cxxModuleCMakeListsModuleName": null,
           "cxxModuleCMakeListsPath": null,
           "cxxModuleHeaderName": null,
@@ -306,7 +306,7 @@
         {
           "name": "--path <path>",
           "description": "Path to the React Native project root.",
-          "default": "D:\\Workspace\\virtual-queue-system"
+          "default": "D:\\Workspace\\virtual-queue-app"
         },
         {
           "name": "--platform <string>",
@@ -606,7 +606,7 @@
   "assets": [],
   "project": {
     "ios": {
-      "sourceDir": "D:\\Workspace\\virtual-queue-system\\ios",
+      "sourceDir": "D:\\Workspace\\virtual-queue-app\\ios",
       "xcodeProject": {
         "name": "VirtualQueueApp.xcodeproj",
         "path": ".",
@@ -615,7 +615,7 @@
       "assets": []
     },
     "android": {
-      "sourceDir": "D:\\Workspace\\virtual-queue-system\\android",
+      "sourceDir": "D:\\Workspace\\virtual-queue-app\\android",
       "appName": "app",
       "packageName": "com.virtualqueueapp",
       "applicationId": "com.virtualqueueapp",

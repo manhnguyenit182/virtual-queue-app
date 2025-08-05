@@ -1,0 +1,27 @@
+# ninja log v5
+10	145	0	D:/Workspace/virtual-queue-app/android/app/.cxx/Debug/na44f674/arm64-v8a/CMakeFiles/cmake.verify_globs	78274b8d8984dbc7
+72	9567	7760814356236809	safeareacontext_autolinked_build/CMakeFiles/react_codegen_safeareacontext.dir/415b3d44733a9e20f1c39e6745b9e1e7/jni/react/renderer/components/safeareacontext/States.cpp.o	d6d69a91a7804957
+108	10194	7760814361411467	rnsvg_autolinked_build/CMakeFiles/react_codegen_rnsvg.dir/788325abe86efb314e1bd3d193a2b580/react-native-svg/common/cpp/react/renderer/components/rnsvg/RNSVGImageState.cpp.o	7c3b3753947a68b6
+147	10204	7760814362487863	rnsvg_autolinked_build/CMakeFiles/react_codegen_rnsvg.dir/f5bc15a1efe01117c14144211e021263/generated/source/codegen/jni/react/renderer/components/rnsvg/EventEmitters.cpp.o	db1b37e3e308f6d7
+45	10215	7760814362806794	safeareacontext_autolinked_build/CMakeFiles/react_codegen_safeareacontext.dir/287a56f7446dad7dc6631aa2d6a5a38a/react/renderer/components/safeareacontext/EventEmitters.cpp.o	ccb1cf2db42cce5b
+64	10244	7760814365757668	safeareacontext_autolinked_build/CMakeFiles/react_codegen_safeareacontext.dir/d5387d03305fb4fb26bca165bbaff6fe/components/safeareacontext/safeareacontextJSI-generated.cpp.o	f5bc6fb1b1bdadfb
+93	10858	7760814366195136	safeareacontext_autolinked_build/CMakeFiles/react_codegen_safeareacontext.dir/ceb800cfe803c53f3d366c6757047f35/generated/source/codegen/jni/safeareacontext-generated.cpp.o	74dbf1fded50e8d5
+116	10885	7760814372448749	rnsvg_autolinked_build/CMakeFiles/react_codegen_rnsvg.dir/2a26437dbfabff676d156d5554046bbd/common/cpp/react/renderer/components/rnsvg/RNSVGLayoutableShadowNode.cpp.o	ed473380cd1b605
+12	11614	7760814378242755	CMakeFiles/appmodules.dir/OnLoad.cpp.o	5ab4cfb9f5f7cbb1
+84	11615	7760814378671326	safeareacontext_autolinked_build/CMakeFiles/react_codegen_safeareacontext.dir/415b3d44733a9e20f1c39e6745b9e1e7/jni/react/renderer/components/safeareacontext/ShadowNodes.cpp.o	fb79a451fd32cb90
+29	11618	7760814376086589	safeareacontext_autolinked_build/CMakeFiles/react_codegen_safeareacontext.dir/be457eeaf55d52f5630cceb63ff199a9/renderer/components/safeareacontext/RNCSafeAreaViewState.cpp.o	f44affff084b09fe
+129	11620	7760814377604680	rnsvg_autolinked_build/CMakeFiles/react_codegen_rnsvg.dir/788325abe86efb314e1bd3d193a2b580/react-native-svg/common/cpp/react/renderer/components/rnsvg/RNSVGShadowNodes.cpp.o	3aedcf604e15d9f5
+37	11965	7760814382396103	safeareacontext_autolinked_build/CMakeFiles/react_codegen_safeareacontext.dir/415b3d44733a9e20f1c39e6745b9e1e7/jni/react/renderer/components/safeareacontext/Props.cpp.o	dd8000a59f23ce27
+101	12357	7760814386147317	rnsvg_autolinked_build/CMakeFiles/react_codegen_rnsvg.dir/2a26437dbfabff676d156d5554046bbd/common/cpp/react/renderer/components/rnsvg/RNSVGImageShadowNode.cpp.o	3c53024e0b50c05a
+138	12642	7760814388904993	rnsvg_autolinked_build/CMakeFiles/react_codegen_rnsvg.dir/rnsvg.cpp.o	e7340a93f127d759
+55	12676	7760814390118390	safeareacontext_autolinked_build/CMakeFiles/react_codegen_safeareacontext.dir/5ec2fd8bba86cabbdf7e7aa00fae5861/renderer/components/safeareacontext/ComponentDescriptors.cpp.o	83d2be82f0dcaf68
+10205	12831	7760814391898704	rnsvg_autolinked_build/CMakeFiles/react_codegen_rnsvg.dir/c4761dd102e90e7b6a367333f6a352d2/build/generated/source/codegen/jni/react/renderer/components/rnsvg/States.cpp.o	c6e1e288d9e1b262
+20	13096	7760814393728443	safeareacontext_autolinked_build/CMakeFiles/react_codegen_safeareacontext.dir/6561566ddd93f947955ee8b774a65064/components/safeareacontext/RNCSafeAreaViewShadowNode.cpp.o	4d3078f6965ede93
+158	13210	7760814395055422	rnsvg_autolinked_build/CMakeFiles/react_codegen_rnsvg.dir/d76a005f2095966e2385a0417708aaec/source/codegen/jni/react/renderer/components/rnsvg/ComponentDescriptors.cpp.o	c013917c52a0d073
+13097	13307	7760814396239366	D:/Workspace/virtual-queue-app/android/app/build/intermediates/cxx/Debug/na44f674/obj/arm64-v8a/libreact_codegen_safeareacontext.so	803fca5dfda55703
+10195	13542	7760814398838260	rnsvg_autolinked_build/CMakeFiles/react_codegen_rnsvg.dir/d76a005f2095966e2385a0417708aaec/source/codegen/jni/react/renderer/components/rnsvg/rnsvgJSI-generated.cpp.o	254e96727222cafc
+10216	13939	7760814403041445	rnsvg_autolinked_build/CMakeFiles/react_codegen_rnsvg.dir/c4761dd102e90e7b6a367333f6a352d2/build/generated/source/codegen/jni/react/renderer/components/rnsvg/ShadowNodes.cpp.o	b403bb5017d910f5
+9573	14964	7760814413203003	rnsvg_autolinked_build/CMakeFiles/react_codegen_rnsvg.dir/c4761dd102e90e7b6a367333f6a352d2/build/generated/source/codegen/jni/react/renderer/components/rnsvg/Props.cpp.o	250ef04077086982
+14964	15086	7760814414455854	D:/Workspace/virtual-queue-app/android/app/build/intermediates/cxx/Debug/na44f674/obj/arm64-v8a/libreact_codegen_rnsvg.so	cd6f31c232b7a3e7
+3	16787	7760814431105387	CMakeFiles/appmodules.dir/D_/Workspace/virtual-queue-app/android/app/build/generated/autolinking/src/main/jni/autolinking.cpp.o	df8ab5e564231793
+16787	16954	7760814432756496	D:/Workspace/virtual-queue-app/android/app/build/intermediates/cxx/Debug/na44f674/obj/arm64-v8a/libappmodules.so	6dc5eac22eb98ba4

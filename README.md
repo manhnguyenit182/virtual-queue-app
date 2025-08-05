@@ -1,191 +1,188 @@
-# Virtual Queue System - React Native App
+# 🎫 Virtual Queue App
 
-Ứng dụng hệ thống hàng đợi ảo được xây dựng với React Native và Firebase Realtime Database.
+<div align="center">
 
-## Tính năng chính
+![React Native](https://img.shields.io/badge/React%20Native-0.80.2-blue.svg)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.9.2-blue.svg)
+![Firebase](https://img.shields.io/badge/Firebase-Realtime-orange.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-- **Thêm khách hàng vào hàng đợi**: Nhập tên và số điện thoại
-- **Xem danh sách hàng đợi**: Theo dõi real-time
-- **Chế độ quản lý**: Gọi khách hàng, cập nhật trạng thái, xóa khỏi hàng đợi
-- **Đồng bộ real-time**: Sử dụng Firebase Realtime Database
+_Ứng dụng quản lý hàng đợi ảo đơn giản và hiệu quả_
 
-## Công nghệ sử dụng
+[Cài đặt](#-cài-đặt) • [Sử dụng](#-cách-sử-dụng) • [Cấu trúc](#-cấu-trúc-dự-án) • [Contributing](#-contributing)
 
-- React Native 0.76+
-- TypeScript
-- Firebase Realtime Database
-- Android target platform
+</div>
 
-## Cài đặt và chạy
+---
 
-### Yêu cầu
+## 📱 Giới thiệu
 
-- Node.js >= 18
-- React Native development environment
-- Android Studio và Android SDK
-- Firebase project
+**Virtual Queue App** là một ứng dụng React Native được thiết kế để quản lý hàng đợi ảo một cách hiệu quả. Ứng dụng cho phép khách hàng lấy số thứ tự và theo dõi vị trí của mình trong hàng đợi theo thời gian thực.
 
-### Bước 1: Cài đặt dependencies
+### ✨ Tính năng chính
 
-### Bước 1: Cài đặt dependencies
+- 📝 **Lấy số thứ tự**: Nhập thông tin cá nhân để nhận số thứ tự duy nhất
+- 🔢 **Hiển thị thông tin**: Xem số thứ tự và vị trí hiện tại trong hàng đợi
+- 🚫 **Bảo mật cao**: Không thể quay lại sau khi lấy số, tránh gian lận
+- 🔥 **Đồng bộ thời gian thực**: Cập nhật trạng thái tức thì với Firebase Realtime Database
+- 📱 **Giao diện đẹp**: Sử dụng GluestackUI components
+- 🎯 **Đơn giản**: Navigation system tối ưu, không phức tạp
+
+## 🛠 Công nghệ sử dụng
+
+| Công nghệ                  | Version | Mục đích                 |
+| -------------------------- | ------- | ------------------------ |
+| React Native               | 0.80.2  | Mobile framework         |
+| TypeScript                 | 5.9.2   | Type safety              |
+| Firebase Realtime Database | Latest  | Backend & real-time sync |
+| GluestackUI                | 1.1.73  | UI component library     |
+| Custom Navigation          | -       | Simple navigation system |
+
+## 🚀 Cài đặt
+
+### Yêu cầu hệ thống
+
+- **Node.js** >= 18.0.0
+- **React Native CLI**
+- **Android Studio** (cho Android development)
+- **Xcode** (cho iOS development)
+- **Firebase Project** với Realtime Database
+
+### Bước 1: Clone repository
+
+```bash
+git clone https://github.com/manhnguyenit182/virtual-queue-app.git
+cd virtual-queue-app
+```
+
+### Bước 2: Cài đặt dependencies
 
 ```bash
 npm install
 ```
 
-### Bước 2: Cấu hình Firebase
+### Bước 3: Cấu hình Firebase
 
-Tham khảo file [FIREBASE_SETUP.md](./FIREBASE_SETUP.md) để cấu hình Firebase.
+1. Tạo Firebase project tại [Firebase Console](https://console.firebase.google.com)
+2. Kích hoạt **Realtime Database**
+3. Cấu hình Database Rules:
 
-### Bước 3: Chạy Metro bundler
+```json
+{
+  "rules": {
+    ".read": true,
+    ".write": true,
+    "queue": {
+      ".indexOn": ["timestamp", "status"]
+    }
+  }
+}
+```
 
-### Bước 3: Chạy Metro bundler
+4. Tải `google-services.json` và đặt vào `android/app/`
+5. Tải `GoogleService-Info.plist` và đặt vào `ios/`
+
+### Bước 4: Chạy ứng dụng
+
+#### Android
 
 ```bash
+# Start Metro Bundler
 npm start
-```
 
-### Bước 4: Chạy app trên Android
-
-Mở terminal mới và chạy:
-
-```bash
-npx react-native run-android
-```
-
-## Cách sử dụng
-
-### Chế độ khách hàng
-
-1. Nhập tên và số điện thoại
-2. Nhấn "Thêm vào hàng đợi"
-3. Xem vị trí trong hàng đợi
-4. Theo dõi trạng thái real-time
-
-### Chế độ quản lý
-
-1. Nhấn toggle "Chế độ quản lý"
-2. Xem danh sách hàng đợi
-3. Gọi khách hàng tiếp theo
-4. Cập nhật trạng thái "Đã phục vụ"
-5. Xóa khách hàng khỏi hàng đợi
-
-## Cấu trúc project
-
-```
-src/
-├── components/
-│   ├── AddToQueue.tsx     # Component thêm khách hàng
-│   └── QueueList.tsx      # Component hiển thị hàng đợi
-└── services/
-    └── FirebaseService.ts # Service kết nối Firebase
-```
-
-## Scripts có sẵn
-
-- `npm start` - Khởi động Metro bundler
-- `npm run android` - Chạy app trên Android
-- `npm run ios` - Chạy app trên iOS
-- `npm test` - Chạy tests
-- `npm run lint` - Kiểm tra code style
-
-## Troubleshooting
-
-### Metro bundler không khởi động
-
-```bash
-npx react-native start --reset-cache
-```
-
-### Lỗi build Android
-
-```bash
-cd android
-./gradlew clean
-cd ..
-npx react-native run-android
-```
-
-### Lỗi Firebase connection
-
-- Kiểm tra file `google-services.json` có đúng vị trí
-- Đảm bảo package name khớp với Firebase project
-- Kiểm tra Firebase Realtime Database rules
-
-## Step 2: Build and run your app
-
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
+# Run Android (terminal mới)
 npm run android
-
-# OR using Yarn
-yarn android
 ```
 
-### iOS
+#### iOS
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+```bash
+# Install CocoaPods dependencies
+cd ios && pod install && cd ..
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
+# Run iOS
 npm run ios
-
-# OR using Yarn
-yarn ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+## 📱 Cách sử dụng
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+### 1. Lấy số thứ tự
 
-## Step 3: Modify your app
+- Nhập **họ tên** (2-50 ký tự)
+- Nhập **số điện thoại** (10-11 số)
+- Ấn **"Thêm vào hàng đợi"**
 
-Now that you have successfully run the app, let's make changes!
+### 2. Xem thông tin
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+- Xem **số thứ tự** được cấp
+- Theo dõi **vị trí hiện tại** trong hàng đợi
+- **Không thể quay lại** - đảm bảo tính công bằng
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+## 📊 Database Schema
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+```json
+{
+  "queue": {
+    "0": {
+      "name": "Nguyen Van A",
+      "phone": "0123456789",
+      "timestamp": 1642567890123,
+      "status": "waiting"
+    },
+    "1": {
+      "name": "Le Thi B",
+      "phone": "0987654321",
+      "timestamp": 1642567895123,
+      "status": "waiting"
+    }
+  },
+  "current": 0, // Số hiện tại đang được phục vụ
+  "lastNumber": 1 // Số cuối cùng được tạo
+}
+```
 
-## Congratulations! :tada:
+## 🎯 Luồng hoạt động
 
-You've successfully run and modified your React Native App. :partying_face:
+```
+[Nhập thông tin] → [Validation] → [Thêm vào Firebase] → [Hiển thị số thứ tự] → [Khóa điều hướng]
+```
 
-### Now what?
+1. **Input**: Người dùng nhập tên và số điện thoại
+2. **Validation**: Kiểm tra dữ liệu hợp lệ
+3. **Firebase**: Thêm vào database và lấy số thứ tự
+4. **Display**: Hiển thị số và vị trí hiện tại
+5. **Lock**: Khóa navigation, không cho phép thêm người mới
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+## 📝 Available Scripts
 
-# Troubleshooting
+| Script            | Mô tả                      |
+| ----------------- | -------------------------- |
+| `npm start`       | Khởi động Metro Bundler    |
+| `npm run android` | Build và chạy trên Android |
+| `npm run ios`     | Build và chạy trên iOS     |
+| `npm run lint`    | Kiểm tra code style        |
+| `npm test`        | Chạy unit tests            |
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## 👨‍💻 Author
 
-# Learn More
+**Manh Nguyen**
 
-To learn more about React Native, take a look at the following resources:
+- GitHub: [@manhnguyenit182](https://github.com/manhnguyenit182)
+- Email: manhnguyenit182@gmail.com
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+## 🙏 Acknowledgments
+
+- [React Native](https://reactnative.dev/) - Amazing mobile framework
+- [Firebase](https://firebase.google.com/) - Reliable backend services
+- [GluestackUI](https://gluestack.io/) - Beautiful UI components
+
+## ⭐ Thanks you
+
+Cảm ơn bạn đã quan tâm. Nếu có bất kỳ câu hỏi nào, hãy liên hệ hoặc để lại phản hồi.
+
+---
+
+<div align="center">
+  <p>Made with ❤️ by <a href="https://github.com/manhnguyenit182">Manh Nguyen</a></p>
+  <p>© 2025 Virtual Queue App. All rights reserved.</p>
+</div>

@@ -1,0 +1,1 @@
+D:\Workspace\virtual-queue-app\android\app\build\intermediates\cxx\Debug\na44f674\obj\arm64-v8a

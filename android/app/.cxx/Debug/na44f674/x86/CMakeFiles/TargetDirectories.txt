@@ -1,9 +1,0 @@
-D:/Workspace/virtual-queue-app/android/app/.cxx/Debug/na44f674/x86/CMakeFiles/appmodules.dir
-D:/Workspace/virtual-queue-app/android/app/.cxx/Debug/na44f674/x86/CMakeFiles/edit_cache.dir
-D:/Workspace/virtual-queue-app/android/app/.cxx/Debug/na44f674/x86/CMakeFiles/rebuild_cache.dir
-D:/Workspace/virtual-queue-app/android/app/.cxx/Debug/na44f674/x86/safeareacontext_autolinked_build/CMakeFiles/react_codegen_safeareacontext.dir
-D:/Workspace/virtual-queue-app/android/app/.cxx/Debug/na44f674/x86/safeareacontext_autolinked_build/CMakeFiles/edit_cache.dir
-D:/Workspace/virtual-queue-app/android/app/.cxx/Debug/na44f674/x86/safeareacontext_autolinked_build/CMakeFiles/rebuild_cache.dir
-D:/Workspace/virtual-queue-app/android/app/.cxx/Debug/na44f674/x86/rnsvg_autolinked_build/CMakeFiles/react_codegen_rnsvg.dir
-D:/Workspace/virtual-queue-app/android/app/.cxx/Debug/na44f674/x86/rnsvg_autolinked_build/CMakeFiles/edit_cache.dir
-D:/Workspace/virtual-queue-app/android/app/.cxx/Debug/na44f674/x86/rnsvg_autolinked_build/CMakeFiles/rebuild_cache.dir

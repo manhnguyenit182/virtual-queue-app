@@ -5,10 +5,10 @@ import { Button, Input, Form } from '@heroui/react';
 import { useFirebaseAuth } from '@/hooks/useFirebaseAuth';
 import { useAuth } from '@/contexts/AuthContext';
 import Manage from '@/app/manage/page';
-export default function LoginForm({ children }: { children?: React.ReactNode }) {
+export default function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [isSignUp, setIsSignUp] = useState(false);
+    const [isSignUp] = useState(false);
     const { signIn, signUp, loading: authLoading, error } = useFirebaseAuth();
     const { user, loading: userLoading } = useAuth();
 

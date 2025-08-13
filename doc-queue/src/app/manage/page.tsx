@@ -164,7 +164,7 @@ export default function Manage() {
                             </p>
                         </div>
                         <NextButton currentNumber={current ?? 0} data={data}>
-                            Next Patient
+                            Số tiếp theo
                         </NextButton>
                     </div>
                 </div>

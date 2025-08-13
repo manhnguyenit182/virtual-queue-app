@@ -39,11 +39,11 @@ class FirebaseService {
       await this.lastNumberRef.set(newNumber);
       console.log('✅ LastNumber updated to:', newNumber);
 
-      // Nếu chưa có current, set current = 0
+      // Nếu chưa có current, set current = 1
       const currentSnap = await this.currentRef.once('value');
       if (currentSnap.val() === null) {
-        console.log('🔄 Setting initial current to 0');
-        await this.currentRef.set(0);
+        console.log('🔄 Setting initial current to 1');
+        await this.currentRef.set(1);
       }
 
       console.log('✅ addToQueue completed, returning:', newNumber);
@@ -54,61 +54,46 @@ class FirebaseService {
     }
   }
 
-  // Lắng nghe thay đổi hàng đợi, current, lastNumber
-  subscribeToQueue(
-    callback: (data: {
-      queue: { [key: string]: { timestamp: number; status: string } };
-      current: number;
-      lastNumber: number;
-    }) => void,
+  // lấy current
+  async getCurrent(): Promise<number> {
+    try {
+      const snapshot = await this.currentRef.once('value');
+      return snapshot.val() ?? 0;
+    } catch (error) {
+      throw new Error(`Failed to get current: ${error}`);
+    }
+  }
+
+  // Subscribe to current number changes (realtime)
+  subscribeToCurrentNumber(
+    callback: (currentNumber: number) => void,
   ): () => void {
-    const queueListener = this.queueRef.on('value', () => emit());
-    const currentListener = this.currentRef.on('value', () => emit());
-    const lastNumberListener = this.lastNumberRef.on('value', () => emit());
+    console.log('🔄 Setting up realtime listener for current number');
 
-    const emit = async () => {
-      const [queueSnap, currentSnap, lastNumberSnap] = await Promise.all([
-        this.queueRef.once('value'),
-        this.currentRef.once('value'),
-        this.lastNumberRef.once('value'),
-      ]);
-      callback({
-        queue: queueSnap.val() || {},
-        current: currentSnap.val() ?? 0,
-        lastNumber: lastNumberSnap.val() ?? -1,
-      });
-    };
+    const listener = this.currentRef.on('value', snapshot => {
+      const currentNumber = snapshot.val() ?? 0;
+      console.log('📡 Current number updated:', currentNumber);
+      callback(currentNumber);
+    });
 
-    // Trả về function để unsubscribe
+    // Return unsubscribe function
     return () => {
-      this.queueRef.off('value', queueListener);
-      this.currentRef.off('value', currentListener);
-      this.lastNumberRef.off('value', lastNumberListener);
+      console.log('🔌 Unsubscribing from current number listener');
+      this.currentRef.off('value', listener);
     };
   }
 
-  // Cập nhật trạng thái số thứ tự
-  async updateQueueItemStatus(
-    number: number,
-    status: 'waiting' | 'called',
-  ): Promise<void> {
+  // Update current number (for testing realtime updates)
+  async updateCurrentNumber(newCurrentNumber: number): Promise<void> {
     try {
-      await this.queueRef.child(String(number)).update({ status });
+      console.log('🔄 Updating current number to:', newCurrentNumber);
+      await this.currentRef.set(newCurrentNumber);
+      console.log('✅ Current number updated successfully');
     } catch (error) {
-      throw new Error(`Failed to update status: ${error}`);
+      console.error('❌ Error updating current number:', error);
+      throw new Error(`Failed to update current number: ${error}`);
     }
   }
-
-  // Xóa số khỏi hàng đợi
-  async removeFromQueue(number: number): Promise<void> {
-    try {
-      await this.queueRef.child(String(number)).remove();
-    } catch (error) {
-      throw new Error(`Failed to remove from queue: ${error}`);
-    }
-  }
-
-  
 
   // Lấy vị trí trong hàng đợi dựa vào số thứ tự
   async getQueuePosition(number: number): Promise<number> {
